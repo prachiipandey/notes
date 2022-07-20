@@ -1,0 +1,114 @@
+{% extends 'admin_nav.html'  %}
+
+{% block body %}
+{% load static %}
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+     <script src=https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js></script>
+     <script src=https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js></script>
+
+     <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+     <link rel="stylesheet"href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css">
+
+    <script>
+        $(document).ready(function() {
+            $('#example').DataTable();
+        } );
+        </script>
+
+
+    <div class="container mt-5">
+        <h2 class="text-center">ASSIGN STATUS</h2>
+        <hr>
+
+        <form method="post">
+            {% csrf_token %}
+            <label>Notes Id</label>
+            <input type="text" name="notesid" class="form-control" value="{{notes.id}}" readonly>
+
+            <label>Status</label>
+            <select name="status" class="form-control">
+                <option value="Accept">Accept</option>
+                <option value="Reject">Reject</option>
+            </select>
+            <br>
+            <input type="submit" value="Submit" class="btn-btn-primary form-control">
+        </form>
+       
+    </div> 
+    <footer class="bg-dark text-center text-white">
+        <!-- Grid container -->
+        <div class="container p-4 pb-0">
+          <!-- Section: Social media -->
+          <section class="mb-4">
+            <!-- Facebook -->
+            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+      
+            <!-- Twitter -->
+            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+              ><i class="fab fa-twitter"></i
+            ></a>
+      
+            <!-- Google -->
+            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+              ><i class="fab fa-google"></i
+            ></a>
+      
+            <!-- Instagram -->
+            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+              ><i class="fab fa-instagram"></i
+            ></a>
+      
+            <!-- Linkedin -->
+            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+              ><i class="fab fa-linkedin-in"></i
+            ></a>
+      
+            <!-- Github -->
+            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+              ><i class="fab fa-github"></i
+            ></a>
+          </section>
+    
+          <section class="">
+            <p class="d-flex justify-content-center align-items-center">
+              <span class="me-3">Register for free&nbsp;&nbsp;</span>
+              <a href="{% url 'signup'  %}" class="btn btn-outline-light btn-rounded">
+                Sign up!
+              </a>
+            </p>
+          </section>
+          <!-- Section: Social media -->
+        </div>
+        <!-- Grid container -->
+      
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+          © 2020 Copyright: 2021 All Rights Reserved  | This Website is made by Prachi Pandey.
+        </div> 
+        <!-- Copyright -->
+      </footer>
+       
+</html>
+
+{% ifequal error "no" %}
+<script>
+    alert('Status Updated Successfully');
+    window.locatio('{% url 'all_notes' %}')
+</script>
+{% endifequal %}
+
+{% ifequal error "yes" %}
+<script>
+    alert('Something went Wrong, Try Again');
+</script>
+{% endifequal %}
+
+{% endblock %}

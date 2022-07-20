@@ -1,0 +1,136 @@
+{% extends 'user_nav.html'  %}
+
+{% block body %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <div class="container mt-5">
+        <h2 class="text-center">UPLOAD NOTES</h2>
+        <hr>
+        <div class="row">
+        
+            <div class="col-sm-6">
+              
+        
+             <form method="post" enctype="multipart/form-data">
+                 {% csrf_token %}
+
+                 <label>Branch</label>
+                 <select class="form-control" name="branch" required>
+                     <option value="null">------Select Branch------</option>
+                     <option value="Information Technology"> Information Technology </option>
+                     <option value="Computer Science"> Computer Science </option>
+                     <option value="Mechanical"> Mechanical </option>
+                     <option value="Civil"> Civil </option>
+                     <option value=" Electrical"> Electrical </option>
+                     <option value="Electronics "> Electronics </option>
+                 </select>
+
+                 <label>Subject</label>
+                 <input type="text" class="form-control" placeholder="Enter Subject" name="subject" required>
+
+                 <label>Notes File</label>
+                 <input type="file" class="form-control" name="notesfile" required>
+
+                 <label>File Type</label>
+                 <select class="form-control" name="filetype" required>
+                    <option value="null">------Select File Type------</option>
+                   <option value="pdf"> PDF </option>
+                    <option value="ppt"> PPT </option>
+                    <option value="doc/docx">DOC/DOCX </option>
+                    <option value="txt"> TXT </option>
+                    <option value="img"> IMG</option>
+                    <option value="zip/rar ">ZIP/RAR </option>
+                </select>
+
+
+                 <label>Description</label>
+                 <textarea class="form-control"  name="description"></textarea>
+ 
+                 <input type="submit" class="btn btn-danger mt-2" value="SUBMIT">
+ 
+             </form>
+            </div>
+
+            <div class="col-sm-6">
+                
+                <img src="{% static 'images/upload.jfif' %}" style="margin-left:140px;margin-top:50px;width:400px; height:300px;">
+              
+            </div>
+
+        </div>
+    </div>
+    <br><br><br>
+
+    <footer class="bg-dark text-center text-white">
+        <!-- Grid container -->
+        <div class="container p-4 pb-0">
+          <!-- Section: Social media -->
+          <section class="mb-4">
+            <!-- Facebook -->
+            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+      
+            <!-- Twitter -->
+            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+              ><i class="fab fa-twitter"></i
+            ></a>
+      
+            <!-- Google -->
+            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+              ><i class="fab fa-google"></i
+            ></a>
+      
+            <!-- Instagram -->
+            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+              ><i class="fab fa-instagram"></i
+            ></a>
+      
+            <!-- Linkedin -->
+            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+              ><i class="fab fa-linkedin-in"></i
+            ></a>
+      
+            <!-- Github -->
+            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+              ><i class="fab fa-github"></i
+            ></a>
+          </section>
+    
+          <section class="">
+            <p class="d-flex justify-content-center align-items-center">
+              <span class="me-3">Register for free&nbsp;&nbsp;</span>
+              <a href="{% url 'signup'  %}" class="btn btn-outline-light btn-rounded">
+                Sign up!
+              </a>
+            </p>
+          </section>
+          <!-- Section: Social media -->
+        </div>
+        <!-- Grid container -->
+      
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+          © 2020 Copyright: 2021 All Rights Reserved  | This Website is made by Prachi Pandey.
+        </div> 
+        <!-- Copyright -->
+      </footer>
+      
+
+    {% ifequal error "no" %}
+    <script>
+        alert('File Uploaded Successfully');
+        window.location=('{% url 'view_mynotes' %}');
+    </script>
+    {% endifequal %}
+    
+    {% ifequal error "yes" %}
+    <script>
+        alert('Something went Wrong, Try Again');
+    </script>
+    {% endifequal %}
+
+</html>
+{% endblock %}

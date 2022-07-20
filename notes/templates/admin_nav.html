@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+  <title>Notes Sharing Site</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" 
+  integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+  <style>
+    .nav-link
+{
+   color: blanchedalmond;   
+}
+
+.nav-link:hover
+{
+    color:black;
+    font-weight: bold;
+    background-color:white;
+    border-radius: 10px;
+}
+  </style>
+</head>
+
+<body>
+
+  <h2 style="padding:3%;">
+       <span style="color:black; text-align:center; font-family:Algerian; Font-size: 70px;">Study Notes Sharing Portal</span>
+       <img src="static/images/logo.png" align="right" style="width:150px; height:100px; position:relative;">
+
+    </h2>
+    
+   <nav class="navbar navbar-expand-sm justify-content-center bg-dark" >
+      <ul class="navbar-nav">
+          <li class="navbar-item">
+              <a class="nav-link" href="{% url 'admin_home' %}">HOME</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">VIEW NOTES</a>
+             
+             <div class="dropdown-menu">
+               <a class="dropdown-item" href="{% url 'pending_notes' %}">PENDING</a>
+               <a class="dropdown-item" href="{% url 'accepted_notes' %}">ACCEPTED</a>
+               <a class="dropdown-item" href="{% url 'rejected_notes' %}">REJECTED</a>
+               <a class="dropdown-item" href="{% url 'all_notes' %}">ALL NOTES</a>
+             </div>
+             
+
+          </li>
+          <li class="navbar-item">
+            <a class="nav-link" href="{% url 'view_users' %}">VIEW USERS</a>
+          </li>
+
+          <li class="navbar-item">
+            <a class="nav-link" href="{% url 'view_messages' %}">VIEW MESSAGES</a>
+          </li>
+
+          <li class="navbar-item">
+            <a class="nav-link" href="{% url 'logout' %}">LOGOUT</a>
+          </li>
+        
+      </ul>
+   </nav>
+</body>
+</html>
+
+{% block body %}
+{% endblock %}

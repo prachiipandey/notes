@@ -1,0 +1,68 @@
+.nav
+{
+   color: blanchedalmond;   
+}
+
+.nav-link:hover
+{
+    color:white;
+    font-weight: bold;
+    background-color:red;
+    border-radius: 10px;
+}
+
+.image{
+    width:100%;
+    height: 470px;
+    background-image: url('static/css/images/banner.jpg');
+    }
+
+    
+
+.transparentbox{
+        width: 100%;
+        height: 470px;
+        background-color: lightgray;
+        border: 1px solid #CD853F;
+        opacity: 0.6;
+    }
+
+.transparentbox p{
+        margin-top: 10%;
+        font-weight: bold;
+        font-size: 60px;
+        font-family: monotype corsiva;
+        color: darkred;
+        text-align: center;
+    }
+
+.halfcircle{
+    height: 75px;
+    width: 150px;
+    border-radius: 90px 90px 0 0;
+    margin: 0px;
+    background-color: green;
+}
+
+.halfcircleBottom{
+    height: 75px;
+    width: 150px;
+    border-radius: 0px 0px 90px 90px;
+    margin: 0px;
+    background-color:darkslategray;
+}
+
+.box1 p{
+    font-weight: bold;
+    color: white;
+    font-family: monotype corsiva;
+    text-align: center;
+}
+
+.circle{
+    height: 75px;
+    width: 150px;
+    border-radius: 90px 90px 0 0;
+    margin: 0px;
+    background-color: yellow;
+}

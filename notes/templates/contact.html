@@ -1,0 +1,253 @@
+{% extends 'navigation.html' %}
+{% block body %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <style>
+
+         .contactForm{
+    font-size:30;
+    color:#333;
+    background:#fff;
+    flex-direction:right;
+    
+}
+
+ .contactForm h2{
+    font-size: 30px;
+    color:#333;
+    font-weight:500;
+    text-align:center;
+    font-family:Algerian;
+}
+
+ .contactForm .inputBox{
+    position: relative;
+    width:100%;
+    margin-top:100px;
+    margin-left:50px;
+}
+
+.contactForm .inputBox input,
+.contactForm .inputBox textarea{
+
+    width:80%;
+    font-size:16px;
+    padding:5px 0;
+    margin:5px 0;
+    border:none;
+    border-bottom:2px solid #333;
+    outline:none;
+    resize:none;
+}
+
+.contactForm .inputBox textarea{
+
+width:80%;
+font-size:16px;
+padding:0px 0;
+margin:0px 5;
+border:none;
+border-bottom:2px solid #333;
+outline:none;
+resize:none;
+}
+
+
+   
+.contactForm .inputBox span{
+    position: absolute;
+    left:0;
+    padding:10px 20;
+    font-size:16px;
+    margin:20px 20;
+    pointer-events:none;
+    color:#666;
+    transition:0.5s;
+}
+
+.contactForm .inputBox input:focus ~ span,
+.contactForm .inputBox input:valid ~ span,
+.contactForm .inputBox textarea:focus ~ span,
+.contactForm .inputBox textarea:focus ~ span{
+    color:#e91e63;
+    font-size:12px;
+    width:100%;
+    transform: translateY(-20px);
+
+}
+
+.contactForm .inputBox textarea:focus ~ span,
+.contactForm .inputBox textarea:focus ~ span{
+    color:#e91e63;
+    font-size:12px;
+    width:100%;
+    transform: translateY(-30px);
+
+}
+
+.contactForm .inputBox input[type="submit"]{
+    width:200px;
+    background:#00bcd4;
+    color:#fff;
+    border:none;
+    cursor:pointer;
+    padding:10px;
+    font-size:18px;
+    margin-bottom:50px;
+}
+
+ @media (max-width:991px) {
+     .contact{
+         padding:50px;
+
+     }
+     .container{
+         flex-direction:column;
+     }
+
+     .container .contactInfo{
+         margin-bottom:40px;
+     }
+ }
+
+      .image{
+        width:100%;
+        height: 100%;
+        background-image: url('static/images/contact.jpg');
+    }
+
+      </style>
+   </head>
+   <body>
+    <div class="image">
+  <div style="text-align:center; width: 100%; height: 200px;">
+    <h3  class="text-black container pt-4" style="font-family:Algerian; font-size: 60px;">Contact Us</h3>
+    <p style="text-align:center; font-size:40px; font-weight:bold;" >How can we help?</p>
+    <p style="text-align:center; font-size:30px; font-weight:bold;">Send Us a Message!</p>
+  </div>
+
+<div class="container mt-5">
+       <div class="row" style="background-color:white;">
+                        
+         <div class="col-sm-6" style="width:50%; ">
+            <div>
+                <iframe width="500" height="400" frameborder="5" style="margin-top:25px;" 
+                src="https://www.bing.com/maps/embed?h=400&w=500&cp=26.874610212201404~80.99851616482181&lvl=16&typ=d&sty=r&src=SHELL&FORM=MBEDV8" scrolling="no">
+                </iframe>
+                <div style="white-space: nowrap; text-align: center; width: 500px; padding: 6px 0;">
+                   <a id="largeMapLink" target="_blank" href="https://www.bing.com/maps?cp=26.874610212201404~80.99851616482181&amp;sty=r&amp;lvl=16&amp;FORM=MBEDLD">View Larger Map</a> &nbsp; | &nbsp;
+                   <a id="dirMapLink" target="_blank" href="https://www.bing.com/maps/directions?cp=26.874610212201404~80.99851616482181&amp;sty=r&amp;lvl=16&amp;rtp=~pos.26.874610212201404_80.99851616482181____&amp;FORM=MBEDLD">Get Directions</a>
+               </div>
+               <div class="col-sm-6 mt-5 "style="flex-direction:column; background-color:white;">      
+                  <p style="color:black;"><i class="fas fa-envelope" style="font-size:20px;"></i>&nbsp; &nbsp;Email ID :<a href="mailto:pandeyprachi7695@gmail.com"> pandeyprachi7695@gmail.com</a></p>
+                     <p style="color:black;"><i class="fas fa-phone-square"style="font-size:20px;"></i>&nbsp; &nbsp;Contact:8797247456 </p>
+                     <p style="color:black;"><i class="fas fa-address-card"style="font-size:20px;"></i>&nbsp; &nbsp;Address : Faizabad Road ,Lucknow</p>
+                      <p style="color:black;"><i class="far fa-clock"style="font-size:20px;"></i>&nbsp; &nbsp;Timimg : 10:00AM - 7:00 PM</p>
+                      <p>Follow us:</p>
+                      <a href="#"><i class="fab fa-facebook-f pb-3" style="font-size: 30px;"></i></a>
+                      <a href="#"><i class="fab fa-twitter pl-4 pb-3" style="font-size: 30px;"></i></a>
+                      <a href="#"><i class="fab fa-telegram-plane pl-4 pb-3" style="font-size: 30px;"></i></a>
+                      <a href="#"><i class="fab fa-instagram pl-4 pb-3" style="font-size: 30px;"></i></a>
+                       
+                 </div>
+            </div>
+         </div>
+            <div class="col-sm-6">
+            <div class="contactForm">
+               <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                   <h2 style="margin-top:10px;
+                   color:#333;
+                   font-weight:500;
+                   text-align:center;
+                   font-family:consolas; font-size:40px; ">SEND MESSAGE</h2>
+                   <div class="inputBox">
+                       <input type="text" name="name" required="required" >
+                       <span>Full Name</span>
+                   </div>
+            
+                   <div class="inputBox">
+                    <input type="text" name="email" required="required">
+                    <span>Email</span>
+                </div>
+            
+                <div class="inputBox">
+                    <textarea required="required" name="desc"></textarea>
+                    <span>Type your message...</span>
+                </div>
+            
+                <div class="inputBox">
+                    <input type="submit" name="" value="send" onclick="return alert('message sent successfully')" >
+                </div>
+            
+               </form>
+            </div>
+          </div>
+            </div>
+            <br><br>
+            
+          </div>
+      </body>
+
+      <footer class="bg-dark text-center text-white">
+        <!-- Grid container -->
+        <div class="container p-4 pb-0">
+          <!-- Section: Social media -->
+          <section class="mb-4">
+            <!-- Facebook -->
+            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+      
+            <!-- Twitter -->
+            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+              ><i class="fab fa-twitter"></i
+            ></a>
+      
+            <!-- Google -->
+            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+              ><i class="fab fa-google"></i
+            ></a>
+      
+            <!-- Instagram -->
+            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+              ><i class="fab fa-instagram"></i
+            ></a>
+      
+            <!-- Linkedin -->
+            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+              ><i class="fab fa-linkedin-in"></i
+            ></a>
+      
+            <!-- Github -->
+            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+              ><i class="fab fa-github"></i
+            ></a>
+          </section>
+    
+          <section class="">
+            <p class="d-flex justify-content-center align-items-center">
+              <span class="me-3">Register for free&nbsp;&nbsp;</span>
+              <a href="{% url 'signup'  %}" class="btn btn-outline-light btn-rounded">
+                Sign up!
+              </a>
+            </p>
+          </section>
+          <!-- Section: Social media -->
+        </div>
+        <!-- Grid container -->
+      
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+          © 2020 Copyright: 2021 All Rights Reserved  | This Website is made by Prachi Pandey.
+        </div> 
+        <!-- Copyright -->
+      </footer>
+    </div>
+
+    
+  
+</html>
+{% endblock %}
